@@ -1,0 +1,6 @@
+Feature,Unrotated_F1,Unrotated_F2,Rotated_F1,Rotated_F2
+RecencyDays,-0.6631,0.4963,-0.8048,0.1958
+Frequency,0.8658,-0.3181,0.9212,0.0477
+GrossMonetary,0.9627,0.1687,0.8189,0.5334
+AvgOrderValue,0.5981,0.7577,0.2522,0.9318
+UniqueProducts,0.8472,-0.013,0.7841,0.321

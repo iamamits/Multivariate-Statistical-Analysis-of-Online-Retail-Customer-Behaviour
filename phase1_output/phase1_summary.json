@@ -1,0 +1,104 @@
+{
+  "project": "Customer Behaviour Analysis & Segmentation Using Computational Statistics",
+  "dataset": "Online Retail II",
+  "domain": "Retail / E-commerce",
+  "sheets": [
+    "Year 2009-2010",
+    "Year 2010-2011"
+  ],
+  "schemas_match": true,
+  "raw_rows_per_sheet": {
+    "Year 2009-2010": 525461,
+    "Year 2010-2011": 541910
+  },
+  "total_raw_rows": 1067371,
+  "exact_duplicates_removed": 34335,
+  "deduplicated_rows": 1033036,
+  "eligible_purchase_rows": 779425,
+  "known_customer_returns_rows": 18390,
+  "unique_eligible_customers": 5878,
+  "unique_eligible_invoices": 36969,
+  "unique_eligible_products": 4631,
+  "unique_eligible_countries": 41,
+  "eligible_date_range": {
+    "min": "2009-12-01 07:45:00",
+    "max": "2011-12-09 12:50:00"
+  },
+  "reference_date": "2011-12-10 12:50:00",
+  "customer_master_rows": 5878,
+  "customer_master_columns": 24,
+  "cleaning_rules": [
+    "Stripped whitespace from column names.",
+    "Converted Invoice to string and stripped whitespace.",
+    "Customer ID kept with NaN for missing; will convert to int-string for non-null later.",
+    "Parsed InvoiceDate to datetime. 0 unparseable dates set to NaT.",
+    "Identified 34,335 exact duplicate rows (keeping first occurrence).",
+    "After deduplication: 1,033,036 rows remain.",
+    "Classified 19,104 rows as cancellation (Invoice starts with 'C').",
+    "Found 22,496 rows with negative Quantity.",
+    "Found 6,019 rows with zero or negative Price.",
+    "Found 4,275 rows with missing Description.",
+    "Found 235,151 rows with missing Customer ID.",
+    "Found 0 rows with missing/invalid InvoiceDate.",
+    "Eligible purchase transactions: 779,425 rows (non-cancellation, Qty>0, Price>0, non-null CustomerID & date).",
+    "Known-customer returns/cancellations: 18,390 rows.",
+    "Converted non-null Customer ID to integer string (e.g., '12345')."
+  ],
+  "transaction_reconciliation": {
+    "deduplicated_total": 1033036,
+    "categories": {
+      "1_eligible_purchase_transactions": 779425,
+      "2_known_customer_returns_cancellations": 18390,
+      "3_known_customer_zero_price_lines": 70,
+      "4_anonymous_commercial_purchases": 228488,
+      "5_anonymous_zero_price_lines": 2551,
+      "6_anonymous_stock_adjustments_damages": 3393,
+      "7_anonymous_cancellations": 714,
+      "8_accounting_bad_debt_adjustments": 5
+    },
+    "residual_unexplained_rows": 0,
+    "reconciliation_status": "EXACT_100_PERCENT_MATCH"
+  },
+  "generated_files": [
+    {
+      "file": "raw_audit.csv",
+      "size_bytes": 1051
+    },
+    {
+      "file": "deduplicated_transactions_classified.csv.gz",
+      "size_bytes": 18515622
+    },
+    {
+      "file": "eligible_purchase_transactions.csv.gz",
+      "size_bytes": 14051101
+    },
+    {
+      "file": "known_customer_returns_cancellations.csv.gz",
+      "size_bytes": 428304
+    },
+    {
+      "file": "customer_master.csv",
+      "size_bytes": 990878
+    },
+    {
+      "file": "data_quality_audit.csv",
+      "size_bytes": 793
+    },
+    {
+      "file": "data_dictionary.csv",
+      "size_bytes": 2546
+    },
+    {
+      "file": "validation_checks.json",
+      "size_bytes": 3221
+    },
+    {
+      "file": "phase1_summary.json",
+      "size_bytes": 3237
+    },
+    {
+      "file": "phase1_cleaning_report.md",
+      "size_bytes": 6957
+    }
+  ]
+}

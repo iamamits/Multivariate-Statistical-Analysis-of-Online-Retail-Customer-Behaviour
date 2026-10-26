@@ -1,0 +1,41 @@
+# ==============================================================================
+# Computational Statistics Coursework — Git Ignore Configuration
+# ==============================================================================
+
+# Raw large dataset (>45 MB; download directly from UCI ML Repository)
+online_retail_II.xlsx
+
+# Large compressed transaction-level archives (>32 MB total)
+phase1_output/*.csv.gz
+*.csv.gz
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+.pytest_cache/
+.coverage
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor configuration
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Local Antigravity / Agent prompt files
+Antigravity_Phase1_Master_Prompt.txt
+*.prompt

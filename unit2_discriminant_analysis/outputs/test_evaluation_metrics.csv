@@ -1,0 +1,10 @@
+Metric,Value
+Overall Test Accuracy,0.866
+Majority-Class Baseline Accuracy,0.5
+Accuracy Gain over Baseline,0.366
+Precision (Higher-spend),0.9151
+Recall (Higher-spend),0.8068
+F1-Score (Higher-spend),0.8576
+Precision (Lower-spend),0.8273
+Recall (Lower-spend),0.9252
+F1-Score (Lower-spend),0.8735

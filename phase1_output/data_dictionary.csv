@@ -1,0 +1,36 @@
+Column,Description,Table
+CustomerID,Unique customer identifier (integer string),customer_master
+FirstPurchaseDate,Date of earliest eligible purchase,customer_master
+LastPurchaseDate,Date of latest eligible purchase,customer_master
+RecencyDays,Days from LastPurchaseDate to reference date (latest purchase date + 1 day),customer_master
+Frequency,Count of unique eligible invoices,customer_master
+GrossMonetary,Sum of Quantity*Price across all eligible lines,customer_master
+AvgOrderValue,Mean of per-invoice totals,customer_master
+MedianOrderValue,Median of per-invoice totals,customer_master
+InvoiceValueStd,Std dev of per-invoice totals (0 if single invoice),customer_master
+MaxOrderValue,Maximum single-invoice total,customer_master
+MinOrderValue,Minimum single-invoice total,customer_master
+TotalQuantity,Sum of Quantity across all eligible lines,customer_master
+PurchaseLineCount,Count of eligible transaction lines,customer_master
+UniqueProducts,Count of distinct StockCodes purchased,customer_master
+ActiveMonths,Count of distinct year-month periods with purchases,customer_master
+UniquePurchaseDays,Count of distinct calendar dates with purchases,customer_master
+MeanPurchaseGapDays,Mean days between consecutive invoice dates (NaN for single-invoice customers),customer_master
+MedianPurchaseGapDays,Median days between consecutive invoice dates (NaN for single-invoice customers),customer_master
+PrimaryCountry,Country with most transactions for this customer,customer_master
+CountryCount,Number of distinct countries in this customer's transactions,customer_master
+ReturnInvoiceCount,Count of distinct cancellation invoices (0 if none),customer_master
+ReturnLineCount,Count of cancellation transaction lines,customer_master
+ReturnTotalQty,Sum of absolute Quantity on cancellation lines,customer_master
+ReturnTotalValue,Sum of |Qty|*Price on cancellation lines,customer_master
+Invoice,Invoice number (string; 'C'-prefixed = cancellation),transactions
+StockCode,Product/item code,transactions
+Description,Product description (may be missing),transactions
+Quantity,Units transacted (negative for cancellations),transactions
+InvoiceDate,Date and time of transaction,transactions
+Price,Unit price in sterling,transactions
+Customer ID,Customer identifier (may be missing),transactions
+Country,Country of customer,transactions
+_source_sheet,Original workbook sheet name,transactions
+_invoice_type,Classified as 'purchase' or 'cancellation',transactions
+_LineValue,Quantity * Price for this line,transactions

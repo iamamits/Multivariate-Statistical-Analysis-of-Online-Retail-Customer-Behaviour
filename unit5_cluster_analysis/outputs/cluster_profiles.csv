@@ -1,0 +1,4 @@
+Cluster,CustomerCount,Percentage,RecencyDays_Mean,Frequency_Mean,GrossMonetary_Mean,AvgOrderValue_Mean,UniqueProducts_Mean,RecencyDays_Median,Frequency_Median,GrossMonetary_Median,AvgOrderValue_Median,UniqueProducts_Median
+Cluster 0,2551,43.4,186.35,3.5,1256.92,440.01,61.07,107.0,3.0,964.83,324.84,49.0
+Cluster 1,1838,31.27,353.93,1.59,254.52,178.42,16.38,383.0,1.0,224.06,157.34,13.0
+Cluster 2,1489,25.33,38.64,16.87,9201.21,546.47,198.82,18.0,11.0,4275.22,363.76,160.0

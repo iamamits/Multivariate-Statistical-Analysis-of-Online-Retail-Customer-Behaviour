@@ -1,0 +1,6 @@
+Feature,Communality_1F,Uniqueness_1F,Communality_2F,Uniqueness_2F
+RecencyDays,0.4397,0.5603,0.686,0.314
+Frequency,0.7496,0.2504,0.8508,0.1492
+GrossMonetary,0.9268,0.0732,0.9552,0.0448
+AvgOrderValue,0.3577,0.6423,0.9318,0.0682
+UniqueProducts,0.7177,0.2823,0.7179,0.2821

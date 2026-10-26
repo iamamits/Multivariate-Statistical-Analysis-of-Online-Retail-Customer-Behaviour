@@ -1,0 +1,4 @@
+Predictor,Discriminant_Weight_w,Decision_Threshold_c
+ln_RecencyDays,-0.04664253971350184,7.120283091230697
+ln_Frequency,2.559976972949567,7.120283091230697
+ln_UniqueProducts,0.8853207195731824,7.120283091230697

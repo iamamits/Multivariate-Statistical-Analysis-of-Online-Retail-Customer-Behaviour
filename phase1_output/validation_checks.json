@@ -1,0 +1,119 @@
+{
+  "reference_date": "2011-12-10 12:50:00",
+  "checks": [
+    {
+      "check": "Unique CustomerID per master row",
+      "status": "PASS",
+      "detail": "5878 rows, 5878 unique IDs"
+    },
+    {
+      "check": "All eligible Quantity > 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "All eligible Price > 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "No NaT dates in eligible transactions",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "No cancellation invoices in eligible",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "All GrossMonetary > 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "All RecencyDays >= 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Row count reconciliation documented",
+      "status": "PASS",
+      "detail": "Combined=1067371, Dedup=1033036, Eligible=779425, Returns=18390"
+    },
+    {
+      "check": "No null Customer ID in eligible",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Spot-check customer 17777",
+      "status": "PASS",
+      "detail": "Freq=3, Monetary=647.56"
+    },
+    {
+      "check": "Spot-check customer 16719",
+      "status": "PASS",
+      "detail": "Freq=14, Monetary=3513.62"
+    },
+    {
+      "check": "Spot-check customer 12546",
+      "status": "PASS",
+      "detail": "Freq=2, Monetary=1161.50"
+    },
+    {
+      "check": "MeanPurchaseGapDays NaN for single-invoice customers",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Mutually exclusive transaction reconciliation (100% exhaustion)",
+      "status": "PASS",
+      "detail": "Sum=1,033,036 == Dedup=1,033,036. Zero-price known customer residual=70 verified."
+    }
+  ],
+  "spot_checks": [
+    {
+      "CustomerID": "17777",
+      "Frequency_master": 3,
+      "Frequency_recomputed": 3,
+      "Frequency_match": true,
+      "GrossMonetary_master": 647.56,
+      "GrossMonetary_recomputed": 647.56,
+      "GrossMonetary_match": true,
+      "Lines": 190
+    },
+    {
+      "CustomerID": "16719",
+      "Frequency_master": 14,
+      "Frequency_recomputed": 14,
+      "Frequency_match": true,
+      "GrossMonetary_master": 3513.62,
+      "GrossMonetary_recomputed": 3513.62,
+      "GrossMonetary_match": true,
+      "Lines": 392
+    },
+    {
+      "CustomerID": "12546",
+      "Frequency_master": 2,
+      "Frequency_recomputed": 2,
+      "Frequency_match": true,
+      "GrossMonetary_master": 1161.5,
+      "GrossMonetary_recomputed": 1161.5,
+      "GrossMonetary_match": true,
+      "Lines": 69
+    }
+  ],
+  "reconciliation_counts": {
+    "eligible_purchase_transactions": 779425,
+    "known_customer_returns_cancellations": 18390,
+    "known_customer_zero_price_lines": 70,
+    "anonymous_commercial_purchases": 228488,
+    "anonymous_zero_price_lines": 2551,
+    "anonymous_stock_adjustments_damages": 3393,
+    "anonymous_cancellations": 714,
+    "accounting_bad_debt_adjustments": 5
+  },
+  "reconciliation_total": 1033036,
+  "reconciliation_mutually_exclusive": true
+}
