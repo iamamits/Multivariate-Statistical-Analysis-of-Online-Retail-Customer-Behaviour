@@ -136,19 +136,3 @@ We explicitly distinguish Factor Analysis retention from PCA variance heuristics
    A two-panel plot illustrating the effect of Varimax rotation:
    - Panel (a) shows unrotated loadings where features lie diagonally in the interior.
    - Panel (b) shows rotated loadings where `Frequency`, `RecencyDays`, and `UniqueProducts` rotate cleanly onto the $F_1^*$ axis, while `AvgOrderValue` aligns with the $F_2^*$ axis.
-
----
-
-## 9. Viva Revision & Defense Guide
-
-1. **Q: How does Factor Analysis fundamentally differ from Principal Component Analysis?**  
-   *A:* PCA is a variance-oriented data reduction method: components are exact orthogonal linear combinations of observed variables ($PC_j = \mathbf{v}_j^T \mathbf{z}$) that maximize total variance, assuming zero error. Factor Analysis is a latent variable model: observed variables are modeled as linear combinations of unobserved common factors plus variable-specific unique errors ($\mathbf{z} = \mathbf{L} \mathbf{F} + \boldsymbol{\epsilon}$). FA explicitly separates common variance ($h_i^2$) from unique/error variance ($u_i^2$).
-
-2. **Q: What is the mathematical definition of communality ($h_i^2$) and uniqueness ($u_i^2$)?**  
-   *A:* For standardized variables with unit variance ($\text{Var}(z_i) = 1$), communality $h_i^2 = \sum_{j=1}^m \ell_{ij}^2$ is the proportion of variable $i$'s variance accounted for by the $m$ common factors. Uniqueness $u_i^2 = \psi_i = 1 - h_i^2$ is the remaining variance specific to variable $i$ (including measurement noise) that is not shared with any other variable.
-
-3. **Q: Why does Varimax rotation not change the communalities?**  
-   *A:* Varimax is an orthogonal rotation matrix $\mathbf{T}$ satisfying $\mathbf{T} \mathbf{T}^T = \mathbf{I}$. Because the transformation is a pure rigid rotation in factor space, the row sum of squared loadings for any variable is invariant: $\sum_{j=1}^m (\ell_{ij}^*)^2 = [\mathbf{L}^* \mathbf{L}^{*T}]_{ii} = [\mathbf{L} \mathbf{T} \mathbf{T}^T \mathbf{L}^T]_{ii} = [\mathbf{L} \mathbf{L}^T]_{ii} = \sum_{j=1}^m \ell_{ij}^2 = h_i^2$.
-
-4. **Q: Why did we select 2 factors even though strict Kaiser's rule yields only 1?**  
-   *A:* Under strict Kaiser ($\lambda > 1.0$), only Factor 1 ($\lambda_1 = 3.1915$) is retained. However, a 1-factor model leaves `AvgOrderValue` with $64.23\%$ uniqueness (unexplained) and cannot be rotated. Factor 2 has $\lambda_2 = 0.9502$ (near-cutoff) and marks the elbow of the scree plot. Retaining 2 factors raises all communalities to $\ge 68.6\%$ and enables Varimax rotation to separate frequency from order spend intensity.

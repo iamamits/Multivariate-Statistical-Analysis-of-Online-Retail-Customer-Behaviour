@@ -39,3 +39,6 @@ desktop.ini
 # Local Antigravity / Agent prompt files
 Antigravity_Phase1_Master_Prompt.txt
 *.prompt
+
+# Local study & viva preparation file (not for remote publication)
+VIVA_PREPARATION.md

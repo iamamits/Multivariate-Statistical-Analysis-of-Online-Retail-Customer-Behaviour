@@ -133,13 +133,3 @@ Choosing the number of components requires distinguishing between two standard s
 1. **Linearity Assumption:** PCA assumes linear relationships between features. While log-transformation linearizes the power-law tail, non-linear dependencies are not modeled by linear PCA.
 2. **Sensitivity to Outliers:** Even after standardization, extreme values can exert leverage on the correlation matrix; log-transformation ($\ln(1+x)$) is essential to reduce extreme skewness.
 3. **Information Loss:** Discarding components $PC_3$, $PC_4$, and $PC_5$ incurs an information loss of **17.17%**, which represents residual variation in the feature space.
-
----
-
-## 9. Viva Revision & Defense Guide
-1. **Q: Why did we perform PCA on the correlation matrix $\mathbf{R}$ rather than the covariance matrix $\mathbf{S}$?**  
-   *A:* In our dataset, features are measured on drastically different units: `RecencyDays` (days, up to 739), `Frequency` (order counts, up to 398), and `GrossMonetary` (pounds, up to £580k). Performing PCA on the raw covariance matrix would allow `GrossMonetary` (variance $> 2 \times 10^8$) to completely dominate the first principal component simply because of its scale. Standardizing features ($Z$-scores) equalizes their variance to 1.0, making PCA equivalent to the eigen-decomposition of the correlation matrix $\mathbf{R}$.
-2. **Q: Why retain 2 components if Kaiser's rule ($\lambda > 1$) only selects 1?**  
-   *A:* By the strict Kaiser criterion ($\lambda > 1.0$), only $PC_1$ ($\lambda_1 = 3.1915$) is retained, because $\lambda_2 = 0.9502 < 1.0$. However, $PC_1$ alone accounts for only 63.83% of the total variance. In exploratory multivariate analysis, an 80% cumulative explained variance threshold is standard; retaining both $PC_1$ and $PC_2$ reaches **82.83% cumulative variance**, capturing the secondary dimension contrasting higher `AvgOrderValue` and `RecencyDays` against `Frequency` (with near-zero loading on `UniqueProducts`).
-3. **Q: What is the mathematical difference between an eigenvector weight and a component loading?**  
-   *A:* An eigenvector weight $v_{ij}$ is the directional coefficient in the linear combination defining the component ($PC_j = \sum v_{kj} Z_k$), constrained so $\sum v_{kj}^2 = 1$. A component loading is the Pearson correlation between the original variable and the component: $\text{Loading}_{ij} = v_{ij} \sqrt{\lambda_j}$.

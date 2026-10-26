@@ -105,22 +105,3 @@ We evaluated candidate cluster counts from $k = 2$ to $k = 6$ across both **Iner
 1. **Spherical Cluster Assumption:** K-Means assumes isotropic, spherical clusters of roughly equal variance. Because customer behaviour forms a continuous multivariate density gradient rather than isolated physical islands, boundaries represent optimal geometric partitions rather than discrete natural species.
 2. **Sensitivity to Initial Seed:** K-Means can converge to local minima depending on initial centroid placement. This was mitigated by using K-Means++ initialization across 10 random restarts with a fixed seed (`42`).
 3. **Scale Sensitivity:** Clustering outcomes depend heavily on preprocessing choices ($\ln(1+x)$ and z-scores); unstandardized data would yield completely different, degenerate clusters driven solely by gross spend.
-
----
-
-## 8. Viva Revision & Defense Guide
-
-1. **Q: Why must features be standardized before applying K-Means clustering?**  
-   *A:* K-Means relies on Euclidean distance ($d = \sqrt{\sum (z_i - \mu_j)^2}$). If features are not standardized, variables with large absolute ranges and variances (such as `GrossMonetary`, spanning up to £580k with variance $> 2 \times 10^8$) will completely dominate distance calculations, rendering features with smaller ranges (such as order counts or recency in days) completely irrelevant. Standardization ensures each behavioural dimension contributes with equal weight.
-
-2. **Q: How does Lloyd's algorithm iteratively minimize the within-cluster sum of squares?**  
-   *A:* Lloyd's algorithm iterates between two steps:
-   - *Assignment Step:* Each data point is assigned to its nearest centroid based on minimum squared Euclidean distance ($\text{argmin}_j \|\mathbf{z}_i - \boldsymbol{\mu}_j\|^2$).
-   - *Update Step:* Each cluster centroid is recomputed as the mathematical mean of all points assigned to that cluster ($\boldsymbol{\mu}_j = \frac{1}{|C_j|} \sum_{i \in C_j} \mathbf{z}_i$).
-   The algorithm terminates when centroid movements fall below a predefined threshold ($\text{tol} = 10^{-6}$) or maximum iterations are reached.
-
-3. **Q: Why did the Silhouette score and Elbow method suggest different cluster counts, and how did you resolve the trade-off?**  
-   *A:* The Silhouette score mathematically peaks at $k = 2$ ($0.3540$) because silhouette coefficients penalize points near cluster boundaries, and fewer clusters naturally mean fewer boundaries. However, the Elbow method shows a pronounced inflection at $k = 3$ ($\Delta = 3,499.53$ drop from $k=2 \to 3$ vs. $\Delta = 1,871.84$ from $k=3 \to 4$). We chose $k = 3$ because $k = 2$ only creates a trivial active/inactive binary split, whereas $k = 3$ uncovers the actionable 3-tier structure (High Engagement, Moderate Activity, Inactive) while maintaining a strong silhouette score ($0.2643$).
-
-4. **Q: Why did you perform PCA for visualization rather than clustering directly on the principal components?**  
-   *A:* Clustering was performed on all 5 standardized behavioural features to preserve the full original dimensional information without discarding any variance. PCA was used post-hoc purely as an orthogonal coordinate projection to visualize the 5D clusters on a 2D plane ($PC_1$ and $PC_2$, capturing 82.83% of variance) without modifying cluster assignments.

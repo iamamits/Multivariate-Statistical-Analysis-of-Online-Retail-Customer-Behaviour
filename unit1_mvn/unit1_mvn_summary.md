@@ -117,13 +117,3 @@ Predictors: $\ln(\text{RecencyDays})$, $\ln(\text{Frequency})$, $\ln(\text{Uniqu
 ## 8. Limitations
 - **Log transformation does not guarantee multivariate normality:** While $\ln(1+x)$ improves univariate symmetry and contracts extreme values, customer behaviour exhibits discrete integer counts at low frequency ($F=1$), meaning the joint distribution deviates from strict continuous Gaussian normality.
 - **Constant Variance Assumption:** In true retail data, high-spending customers often exhibit greater variance (heteroscedasticity) than low-spenders, which classical MVN conditional theory assumes to be constant ($\sigma^2_{Y|\mathbf{X}}$).
-
----
-
-## 9. Viva Revision & Defense Guide
-1. **Q: Why does the conditional MVN expectation formula match OLS regression coefficients?**  
-   *A:* Under joint multivariate normality, $E[Y \mid \mathbf{X}]$ is mathematically proven to be linear with slope vector $\boldsymbol{\Sigma}_{XX}^{-1} \boldsymbol{\Sigma}_{XY}$. The sample analogue of this expression is $(\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$, which is identically the Ordinary Least Squares estimator.
-2. **Q: What is the difference between sample covariance and MLE covariance?**  
-   *A:* Sample covariance divides by $n-1$ (Bessel's correction) to yield an unbiased estimator ($E[\mathbf{S}] = \boldsymbol{\Sigma}$), whereas Maximum Likelihood divides by $n$ and is slightly biased downwards by $\frac{n-1}{n}$.
-3. **Q: Why not delete extreme outliers to force normality?**  
-   *A:* High-spending wholesale customers represent genuine commercial revenue. Deleting them creates an artificial dataset. Applying a variance-stabilizing log transformation is defensible because it preserves all customers while making the distributions suitable for linear multivariate techniques.
