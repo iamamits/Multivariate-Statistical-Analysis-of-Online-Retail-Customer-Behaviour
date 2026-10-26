@@ -1,6 +1,6 @@
 """
 Computational Statistics — Sequential Pipeline Runner
-Coursework: Customer Behaviour Analysis & Segmentation Using Computational Statistics
+Coursework: Multivariate Statistical Analysis of Online Retail Customer Behaviour
 Dataset: Online Retail II (N = 5,878 eligible customers)
 
 This runner executes all five syllabus units sequentially in order:

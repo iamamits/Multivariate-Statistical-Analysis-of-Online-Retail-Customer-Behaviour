@@ -1,5 +1,5 @@
 # Computational Statistics Coursework Dependencies
-# Project: Customer Behaviour Analysis & Segmentation Using Computational Statistics
+# Project: Multivariate Statistical Analysis of Online Retail Customer Behaviour
 # Python >= 3.10 recommended
 
 # Core numerical computing & data manipulation

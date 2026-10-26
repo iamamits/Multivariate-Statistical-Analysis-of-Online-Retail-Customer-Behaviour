@@ -1,4 +1,4 @@
-# Customer Behaviour Analysis & Segmentation Using Computational Statistics
+# Multivariate Statistical Analysis of Online Retail Customer Behaviour
 
 A complete undergraduate Computational Statistics coursework project analysing retail customer purchasing behaviour using multivariate statistical methods on the **Online Retail II** dataset.
 
